@@ -1,43 +1,74 @@
-<script>
-  
-  
-  import Counter from './lib/Counter.svelte'
+<script lang="ts">
+  import Drawer, { AppContent, Content } from "@smui/drawer";
+  import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
 </script>
 
-<main>
-  <div>
-    <a href="https://svelte.dev" target="_blank"> 
-      <img src="https://grpc.io/img/logos/grpc-icon-color.png" class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
+<div class="drawer-container">
+  <Drawer>
+    <DataTable table$aria-label="People list" style="max-width: 100%;">
+      <Head>
+        <Row>
+          <Cell>gRPC Clicker</Cell>
+        </Row>
+      </Head>
+      <Body>
+        <Row>
+          <Cell>Steve</Cell>
+        </Row>
+        <Row>
+          <Cell>Sharon</Cell>
+        </Row>
+        <Row>
+          <Cell>Rodney</Cell>
+        </Row>
+        <Row>
+          <Cell>Mack</Cell>
+        </Row>
+        <Row>
+          <Cell>Mack</Cell>
+        </Row>
+        <Row>
+          <Cell>Mack</Cell>
+        </Row>
+        <Row>
+          <Cell>Mack</Cell>
+        </Row>
+      </Body>
+    </DataTable>
+  </Drawer>
 
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
-</main>
+  <AppContent class="app-content">
+    <main class="main-content">
+      App content.
+      <br />
+      <pre class="status">Clicked: nani</pre>
+    </main>
+  </AppContent>
+</div>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
+  /* These classes are only needed because the
+    drawer is in a container on the page. */
+  .drawer-container {
+    position: relative;
+    display: flex;
+    border: 1px solid
+      var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+    z-index: 0;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+
+  * :global(.app-content) {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+    flex-grow: 1;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+
+  .main-content {
+    overflow: auto;
+    padding: 16px;
+    height: 100%;
+    box-sizing: border-box;
   }
 </style>
