@@ -1,74 +1,48 @@
 <script lang="ts">
-  import Drawer, { AppContent, Content } from "@smui/drawer";
-  import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
 </script>
 
-<div class="drawer-container">
-  <Drawer>
-    <DataTable table$aria-label="People list" style="max-width: 100%;">
-      <Head>
-        <Row>
-          <Cell>gRPC Clicker</Cell>
-        </Row>
-      </Head>
-      <Body>
-        <Row>
-          <Cell>Steve</Cell>
-        </Row>
-        <Row>
-          <Cell>Sharon</Cell>
-        </Row>
-        <Row>
-          <Cell>Rodney</Cell>
-        </Row>
-        <Row>
-          <Cell>Mack</Cell>
-        </Row>
-        <Row>
-          <Cell>Mack</Cell>
-        </Row>
-        <Row>
-          <Cell>Mack</Cell>
-        </Row>
-        <Row>
-          <Cell>Mack</Cell>
-        </Row>
-      </Body>
-    </DataTable>
-  </Drawer>
-
-  <AppContent class="app-content">
-    <main class="main-content">
-      App content.
-      <br />
-      <pre class="status">Clicked: nani</pre>
-    </main>
-  </AppContent>
+<div class="row">
+  <div class="column left" style="background-color:#aaa;">
+    <h2>Request metadata</h2>
+    <p>Some text..</p>
+    <!-- add request related metadata over here -->
+  </div>
+  <div class="column middle" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column right" style="background-color:#ccc;">
+    <h2>Column 3</h2>
+    <p>Some text..</p>
+  </div>
 </div>
 
 <style>
-  /* These classes are only needed because the
-    drawer is in a container on the page. */
-  .drawer-container {
-    position: relative;
-    display: flex;
-    border: 1px solid
-      var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.1));
-    overflow: hidden;
-    z-index: 0;
-  }
-
-  * :global(.app-content) {
-    flex: auto;
-    overflow: auto;
-    position: relative;
-    flex-grow: 1;
-  }
-
-  .main-content {
-    overflow: auto;
-    padding: 16px;
-    height: 100%;
+  * {
     box-sizing: border-box;
+  }
+
+  /* Create three unequal columns that floats next to each other */
+  .column {
+    float: left;
+    padding: 10px;
+    height: 800px; /* Should be removed. Only for demonstration */
+  }
+
+  .left {
+    width: 20%;
+  }
+  .right {
+    width: 40%;
+  }
+  .middle {
+    width: 40%;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 </style>
