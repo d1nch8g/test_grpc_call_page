@@ -4,6 +4,8 @@
   let protoAdress = "localhost:8080";
   let serviceName = "PetSerivce";
   let protoCallName = "GetPets";
+  let inputRepresentation = `reqs = 1`;
+  let outputRepresentation = `reqs = 1`;
 </script>
 
 <div class="row">
@@ -36,6 +38,33 @@
         <td>{protoCallName} </td>
       </tr>
     </table>
+
+    <table>
+      <tr>
+        <td>Input message</td>
+      </tr>
+      <tr>
+        <td>{inputRepresentation} </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>Output message</td>
+      </tr>
+      <tr>
+        <td>{outputRepresentation} </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>Metadata</td>
+      </tr>
+      <tr>
+        <td>{outputRepresentation} </td>
+      </tr>
+    </table>
   </div>
 
   <div class="column middle">
@@ -50,12 +79,19 @@
 </div>
 
 <style>
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+
   table {
-    text-align: left;
+    text-align: center;
     position: relative;
     border-collapse: collapse;
     width: 100%;
+    margin: 8px;
   }
+
   td {
     border: 1px solid #999;
     padding: 20px;
